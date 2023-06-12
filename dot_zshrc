@@ -1,0 +1,23 @@
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+
+# Own shared
+plug "$HOME/.config/zsh/exports.zsh"
+plug "$HOME/.config/zsh/aliases.zsh"
+plug "$HOME/.config/zsh/prompt.zsh"
+
+# Local
+[ -d $HOME/.config/zsh/local/ ] && for file in $HOME/.config/zsh/local/**/*(.); do plug $file; done
+
+# Third-party
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+plug "zsh-users/zsh-syntax-highlighting"
+
+# Extra plugins
+plug "zap-zsh/fnm"
+
+
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
